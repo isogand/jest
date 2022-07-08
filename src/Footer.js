@@ -30,7 +30,7 @@ export default function Footer() {
         >
 
             <Box
-                style={{backgroundColor:'pink'}}
+                style={{backgroundColor:'#474747'}}
                 component="footer"
                 sx={{
                     py: 5,
