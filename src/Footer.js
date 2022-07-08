@@ -11,6 +11,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
+import {Divider, Stack} from "@mui/material";
 
 
 function Copyright() {
@@ -33,9 +34,7 @@ export default function Footer() {
         setSpacing(Number(event.target.value));
     };
 
-    const jsx = `
-<Grid container spacing={${spacing}}>
-`;
+    const jsx = `<Grid container spacing={${spacing}}>`;
     return (
         <Box
 
@@ -61,10 +60,12 @@ export default function Footer() {
             >
                 <Container maxWidth="sm">
                     <Typography variant="body1">
-                        My sticky footer can be found here.<FavoriteIcon style={{fontSize:15,color:'red'}}/>
+                        My sticky footer can be found here.<span role="img" aria-label="Love">❤️</span>
                     </Typography>
                 </Container>
                 <br/>
+                {/*<FavoriteIcon style={{fontSize:15,color:'red'}}/>*/}
+                {/*//icon*/}
                 <Grid sx={{ flexGrow: 1 }} container spacing={2}>
                     <Grid item xs={12}>
                         <Grid container justifyContent="center" spacing={spacing}>
@@ -79,7 +80,7 @@ export default function Footer() {
                                                 theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
                                         }}
                                     >
-                                        <AdbIcon style={{flex:1,alignItems:'center',justifyContent:'center',marginTop:'0.5rem',fontSize:25}}  />
+                                        <AdbIcon color="success" style={{flex:1,alignItems:'center',justifyContent:'center',marginTop:'0.5rem',fontSize:25}}  />
                                     </Paper>
                                     <Paper
                                         style={{borderRadius:'50%'}}
@@ -90,7 +91,7 @@ export default function Footer() {
                                                 theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
                                         }}
                                     >
-                                        <InstagramIcon style={{flex:1,alignItems:'center',justifyContent:'center',marginTop:'0.5rem',fontSize:25}}  />
+                                        <InstagramIcon  color="secondary" style={{flex:1,alignItems:'center',justifyContent:'center',marginTop:'0.5rem',fontSize:25}}  />
                                     </Paper>
                                     <Paper
                                         style={{borderRadius:'50%'}}
@@ -101,7 +102,7 @@ export default function Footer() {
                                                 theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
                                         }}
                                     >
-                                        <YouTubeIcon style={{flex:1,alignItems:'center',justifyContent:'center',marginTop:'0.5rem',fontSize:25}}  />
+                                        <YouTubeIcon color="primary" style={{flex:1,alignItems:'center',justifyContent:'center',marginTop:'0.5rem',fontSize:25}}  />
                                     </Paper>
                                     <Paper
                                         style={{borderRadius:'50%'}}
@@ -112,17 +113,26 @@ export default function Footer() {
                                                 theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
                                         }}
                                     >
-                                        <MailOutlineIcon style={{flex:1,alignItems:'center',justifyContent:'center',marginTop:'0.5rem',fontSize:25}}  />
+                                        <MailOutlineIcon  style={{flex:1,alignItems:'center',justifyContent:'center',marginTop:'0.5rem',fontSize:25}}  />
                                     </Paper>
 
                                 </Grid>
-
                             {/*))}*/}
                         </Grid>
                     </Grid>
                 </Grid>
 
-
+                <br/>
+                <Stack style={{justifyContent:'center'}}
+                    direction="row"
+                    divider={<Divider orientation="vertical" flexItem />}
+                    spacing={8}
+                >
+                    <div>Item 1</div>
+                    <div>Item 2</div>
+                    <div>Item 3</div>
+                </Stack>
+                {/*//gride*/}
                 <br/>
                 <br/>
                 <Grid container spacing={2}>
