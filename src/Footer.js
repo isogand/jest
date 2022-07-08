@@ -4,6 +4,14 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
+import Grid from "@mui/material/Grid";
+import Paper from '@mui/material/Paper';
+import AdbIcon from "@mui/icons-material/Adb";
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import YouTubeIcon from '@mui/icons-material/YouTube';
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
+
 
 function Copyright() {
     return (
@@ -19,6 +27,15 @@ function Copyright() {
 }
 
 export default function Footer() {
+    const [spacing, setSpacing] = React.useState(2);
+
+    const handleChange = (event) => {
+        setSpacing(Number(event.target.value));
+    };
+
+    const jsx = `
+<Grid container spacing={${spacing}}>
+`;
     return (
         <Box
 
@@ -44,10 +61,86 @@ export default function Footer() {
             >
                 <Container maxWidth="sm">
                     <Typography variant="body1">
-                        My sticky footer can be found here.
+                        My sticky footer can be found here.<FavoriteIcon style={{fontSize:15,color:'red'}}/>
                     </Typography>
-                    <Copyright />
                 </Container>
+                <br/>
+                <Grid sx={{ flexGrow: 1 }} container spacing={2}>
+                    <Grid item xs={12}>
+                        <Grid container justifyContent="center" spacing={spacing}>
+                            {/*{[0,1,2,3].map((value) => (*/}
+                                <Grid style={{display:'flex'}}>
+                                    <Paper
+                                        style={{borderRadius:'50%'}}
+                                        sx={{
+                                            height: 40,
+                                            width: 40,
+                                            backgroundColor: (theme) =>
+                                                theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+                                        }}
+                                    >
+                                        <AdbIcon style={{flex:1,alignItems:'center',justifyContent:'center',marginTop:'0.5rem',fontSize:25}}  />
+                                    </Paper>
+                                    <Paper
+                                        style={{borderRadius:'50%'}}
+                                        sx={{
+                                            height: 40,
+                                            width: 40,
+                                            backgroundColor: (theme) =>
+                                                theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+                                        }}
+                                    >
+                                        <InstagramIcon style={{flex:1,alignItems:'center',justifyContent:'center',marginTop:'0.5rem',fontSize:25}}  />
+                                    </Paper>
+                                    <Paper
+                                        style={{borderRadius:'50%'}}
+                                        sx={{
+                                            height: 40,
+                                            width: 40,
+                                            backgroundColor: (theme) =>
+                                                theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+                                        }}
+                                    >
+                                        <YouTubeIcon style={{flex:1,alignItems:'center',justifyContent:'center',marginTop:'0.5rem',fontSize:25}}  />
+                                    </Paper>
+                                    <Paper
+                                        style={{borderRadius:'50%'}}
+                                        sx={{
+                                            height: 40,
+                                            width: 40,
+                                            backgroundColor: (theme) =>
+                                                theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+                                        }}
+                                    >
+                                        <MailOutlineIcon style={{flex:1,alignItems:'center',justifyContent:'center',marginTop:'0.5rem',fontSize:25}}  />
+                                    </Paper>
+
+                                </Grid>
+
+                            {/*))}*/}
+                        </Grid>
+                    </Grid>
+                </Grid>
+
+
+                <br/>
+                <br/>
+                <Grid container spacing={2}>
+                    <Grid style={{backgroundColor:'pink'}} item xs={8}>
+                        <div style={{direction:'rlt',textAlign:'end'}}>xs=8</div>
+                        <div>xs=8</div>
+                        <div style={{textAlign:'start'}}>xs=8</div>
+                    </Grid>
+                    <Grid style={{backgroundColor:'orange'}} item xs={4}>
+                        <div>xs=4</div>
+                    </Grid>
+                    <Grid style={{backgroundColor:'orchid'}} item xs={4}>
+                        <div>xs=4</div>
+                    </Grid>
+                    <Grid style={{backgroundColor:'yellow'}} item xs={8}>
+                        <div>xs=8</div>
+                    </Grid>
+                </Grid>
             </Box>
         </Box>
     );
