@@ -8,6 +8,10 @@ import FileCopyIcon from '@mui/icons-material/FileCopyOutlined';
 import SaveIcon from '@mui/icons-material/Save';
 import PrintIcon from '@mui/icons-material/Print';
 import ShareIcon from '@mui/icons-material/Share';
+import Grid from "@mui/material/Grid";
+import Gride from "./Gride";
+import Mui from "./mui";
+
 
 
 export function replaceCamelWithSpaces(colorName) {
@@ -39,7 +43,6 @@ function App() {
                >
                    Change to {newButtonColor}
                </Button>
-
                <input
                    type="checkbox"
                    id="disable-button-checkbox"

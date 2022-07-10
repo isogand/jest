@@ -28,7 +28,7 @@ function Copyright(props) {
 
 const theme = createTheme();
 
-export default function SignUp() {
+export default function Gride() {
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
@@ -39,8 +39,8 @@ export default function SignUp() {
     };
 
     return (
-        <ThemeProvider theme={theme}>
-            <Container component="main" maxWidth="xs">
+        <ThemeProvider  theme={theme}>
+            <Container style={{backgroundColor:'pink'}} component="main" maxWidth="xs">
                 <CssBaseline />
                 <Box
                     sx={{
