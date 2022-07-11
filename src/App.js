@@ -1,6 +1,15 @@
 import {useState} from "react";
 import './App.css';
-import {Button, Divider, SpeedDial, SpeedDialAction, SpeedDialIcon, Stack} from "@mui/material";
+import {
+    Button, Card,
+    CardActionArea, CardContent,
+    CardMedia,
+    Divider,
+    SpeedDial,
+    SpeedDialAction,
+    SpeedDialIcon,
+    Stack
+} from "@mui/material";
 import Appbar from "./Appbar";
 import Footer from "./Footer";
 import Box from "@mui/material/Box";
@@ -11,6 +20,8 @@ import ShareIcon from '@mui/icons-material/Share';
 import Grid from "@mui/material/Grid";
 import Gride from "./Gride";
 import Mui from "./mui";
+import Typography from "@mui/material/Typography";
+import SummaryForm from "./pages/summary/SummaryForm";
 
 
 
@@ -34,38 +45,54 @@ function App() {
     <div className="App">
        <div>
           <Appbar/>
-           <div style={{alignItems:'center',display:'flex',justifyContent:'center',placeItems:'center'}}>
-               <Button
-                   onClick={()=>setButtonColor(newButtonColor)}
-                   style={{backgroundColor:disabled? 'gray' : buttonColor}}
-                   variant="contained"
-                   disabled={disabled}
+           <Card style={{justifyContent:'center',alignItems:'center',display:'inline-flex',marginTop:'3rem'}} sx={{ maxWidth: 345 }}>
+               <CardActionArea>
+                   <CardContent>
+                       <div>
+                           <Button
+                               onClick={()=>setButtonColor(newButtonColor)}
+                               style={{backgroundColor:disabled? 'gray' : buttonColor}}
+                               variant="contained"
+                               disabled={disabled}
+                           >
+                               Change to {newButtonColor}
+                           </Button>
+                           <input
+                               type="checkbox"
+                               id="disable-button-checkbox"
+                               defaultChecked={disabled}
+                               aria-checked={disabled}
+                               onChange={(e) => setDisabled(e.target.checked)} />
+                           <label htmlFor="disable-button-checkbox">Disable button</label>
+                       </div>
+                   </CardContent>
+               </CardActionArea>
+           </Card>
+           <br/>
+           <br/>
+           <Box
+               sx={{
+                   display: 'flex',
+                   flexDirection: 'column',
+               }}
+           >
+
+               <Box
+                   style={{backgroundColor:'deeppink'}}
+                   component="footer"
+                   sx={{
+                       py: 5,
+                       px: 5,
+                       mt: 'auto',
+                       backgroundColor: (theme) =>
+                           theme.palette.mode === 'light'
+                               ? theme.palette.grey[200]
+                               : theme.palette.grey[800],
+                   }}
                >
-                   Change to {newButtonColor}
-               </Button>
-               <input
-                   type="checkbox"
-                   id="disable-button-checkbox"
-                   defaultChecked={disabled}
-                   aria-checked={disabled}
-                   onChange={(e) => setDisabled(e.target.checked)} />
-               <label htmlFor="disable-button-checkbox">Disable button</label>
-           </div>
-           {/*<Box sx={{ height: 320, transform: 'translateZ(0px)', flexGrow: 1 }}>*/}
-           {/*    <SpeedDial*/}
-           {/*        ariaLabel="SpeedDial basic example"*/}
-           {/*        sx={{ position: 'absolute', bottom: 16, right: 16 }}*/}
-           {/*        icon={<SpeedDialIcon />}*/}
-           {/*    >*/}
-           {/*        {actions.map((action) => (*/}
-           {/*            <SpeedDialAction*/}
-           {/*                key={action.name}*/}
-           {/*                icon={action.icon}*/}
-           {/*                tooltipTitle={action.name}*/}
-           {/*            />*/}
-           {/*        ))}*/}
-           {/*    </SpeedDial>*/}
-           {/*</Box>*/}
+                   <SummaryForm/>
+               </Box>
+           </Box>
           <Footer/>
        </div>
     </div>
